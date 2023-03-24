@@ -1,0 +1,36 @@
+{% extends 'layout.html'%}
+   
+{% block body%}
+<header>
+   <h1 class= "title"> To do App para todas tus tareas</h1>
+</header>
+<section class=" container">
+   <h2 class="subtitle"> agregar una nueva tarea</h2>
+   <form action="{{url_for('agregar')}}" method = "POST">
+      <input type="text" name="tarea">
+      <button type="submit"> Agregar</button>
+   </form>  
+</section>
+
+
+</section class= "container">
+    {% for tarea in tareas %} 
+    <article class="task cotainer">
+      <table>
+         <tr>
+            <td> {{tarea}}</td>
+                <td> 
+                  <a href="/done/{{tareas.index(tarea)}}">done</a>
+               </td>
+                      
+      
+         </tr>
+      </table>
+
+    </article>
+     {% endfor %}
+<h2 class="subtitle"> Lista de tareas pedientes</h2>
+</section>
+
+
+{% endblock%}
